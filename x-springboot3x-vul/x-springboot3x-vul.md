@@ -1,6 +1,6 @@
-# X-SpringBoot Project Vertical Privilege Escalation Vulnerabilities
+# X-SpringBoot3x Project Privilege Revocation Failure Vulnerability
 
-The X-SpringBoot project is a project on GitHub with 2.5k stars, and it has *Privilege Revocation Failure*. Users may can use tools such as Postman to query information that they do not have permission to operate.
+The X-SpringBoot project is a project on GitHub with 2.5k stars, and it has *Privilege Revocation Failure* vulnerability. Users may can use tools such as Postman to query information that they do not have permission to operate.
 
 ## Version & Reference
 
