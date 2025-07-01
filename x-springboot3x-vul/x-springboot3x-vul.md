@@ -30,4 +30,4 @@ Use the token of the 'test1' user to send a request to create a new user. It was
 
 ![img3](./img/img3.png)
 
-The Privilege Revocation Failure vulnerability causes when a role reduces its privileges, the original privileges are not properly reclaimed, and the user still retains operational capabilities beyond the actual authorized scope.
+The Privilege Revocation Failure vulnerability causes when a role reduces its privileges, the original privileges are not properly reclaimed, and the user still retains operational capabilities beyond the actual authorized scope. To mitigate this vulnerability, synchronous validation must be implemented in source code. When processing permission modification requests, the menu table and permission table must be updated atomically to prevent authorization/revocation failures.
