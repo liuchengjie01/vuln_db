@@ -14,7 +14,7 @@ The reason for the vulnerability is that when the web front-end sends a request 
 
 ![img1](./img/img1.png)
 
-In backend code, if the *PermissionList* in requests is empty, no action is taken.
+In backend code (\src\main\java\com\suke\czx\modules\sys\service\impl\SysRoleServiceImpl.java), if the *PermissionList* in requests is empty, no action is taken.
 
 ![img2](./img/img2.png)
 
