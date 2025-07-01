@@ -18,16 +18,16 @@ In backend code (\src\main\java\com\suke\czx\modules\sys\service\impl\SysRoleSer
 
 ![img2](./img/img2.png)
 
-So if a user modifies the permissions of a role using the frontend, the corresponding permissions in the database will not change (the database table *sys_role_permission*).
+So if a user modifies the permissions of a role using the frontend, the corresponding permissions in the database will not get updated (the database table *sys_role_permission*).
 
 ## Vulnerability Reproduce & Impact
 
 Create a user 'test1' which has the role permission to save users.
 
-Modify the role permission of user 'test1' using admin privileges in the front-end webpage, so that it does not have the permission to save users.
+Deauthorize the role permission of user 'test1' using admin privileges in the webpage, so that it does not have the permission to save users.
 
 Use the token of the 'test1' user to send a request to create a new user. It was found that the response was successful and the new user was successfully created in the database.
 
 ![img3](./img/img3.png)
 
-The Privilege Revocation Failure vulnerability causes when a role reduces its privileges, the original privileges are not properly reclaimed, and the user still retains operational capabilities beyond the actual authorized scope.
+The Privilege Revocation Failure vulnerability causes when a role reduces its privileges, the original privileges are not properly reclaimed, and the user still retains operational capabilities beyond the actual authorized scope. To mitigate this vulnerability, synchronous validation must be implemented in source code. When processing permission modification requests, the menu table and permission table must be updated atomically to prevent authorization/revocation failures.
