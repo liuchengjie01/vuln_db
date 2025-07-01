@@ -18,13 +18,13 @@ In backend code, if the *PermissionList* in requests is empty, no action is take
 
 ![img2](./img/img2.png)
 
-So if a user modifies the permissions of a role using the frontend, the corresponding permissions in the database will not change (the database table *sys_role_permission*).
+So if a user modifies the permissions of a role using the frontend, the corresponding permissions in the database will not get updated (the database table *sys_role_permission*).
 
 ## Vulnerability Reproduce & Impact
 
 Create a user 'test1' which has the role permission to save users.
 
-Modify the role permission of user 'test1' using admin privileges in the front-end webpage, so that it does not have the permission to save users.
+Deauthorize the role permission of user 'test1' using admin privileges in the webpage, so that it does not have the permission to save users.
 
 Use the token of the 'test1' user to send a request to create a new user. It was found that the response was successful and the new user was successfully created in the database.
 
